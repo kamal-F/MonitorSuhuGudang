@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MonitorSuhuGudang</string>
+    <string name="txt1">Sistem Monitoring Suhu Gudang</string>
+    <string name="btn1">Tekan</string>
+</resources>
