@@ -2,6 +2,8 @@ package com.example.monitorsuhugudang
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,8 +21,18 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         val btn = findViewById<Button>(R.id.btnStatus)
+        val input = findViewById<EditText>(R.id.inputSuhu)
+        val tv = findViewById<TextView>(R.id.textView)
+
         btn.setOnClickListener {
-            Toast.makeText(this, "Suhu gudang stabil", Toast.LENGTH_SHORT).show()
+            val suhu = input.text.toString().toIntOrNull()
+            if (suhu != null) {
+                val status = if (suhu < 27) "Suhu Aman" else "Periksa Pendingin!"
+                Toast.makeText(this, "Status: $status", Toast.LENGTH_SHORT).show()
+                tv.text = "Suhu Gudang: ${suhu}°C"
+            } else {
+                Toast.makeText(this, "Masukkan suhu valid", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
